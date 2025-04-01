@@ -1,22 +1,151 @@
 <!DOCTYPE html>
-<html>
-  <head>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Pocket Pantries</title>
-    <link href="style.css" type="text/css" rel="stylesheet">
-  </head>
-  <body>
-    <h1 style="text-align: center;">Pocket Pantries</h1>
-    <div style="display: flex; justify-content: center; align-items: center;">
-    <img src="C:\Users\hktom\DevSource\Proj\-GEOG-HopeT-GEOG478-\projects\Pocket-Pantry.webp" export = view width="240" height="300" controls/>
-    </div>
-    <p>The purpose of the Pocket Pantry program is to provide temporary relief to Texas A&M students in need who are experiencing food insecurity by providing immediate access to non-perishable food and toiletries before directing them to additional support resources on campus. 
-      Pocket Pantries are located across campus. The Pocket Pantries along with the 12th Can opened its doors in November 2013.
-      Currently, there are 29 Pocket Pantry locations around campus. A $50,000 annual allocation to this program will ensure the pantries remain stocked year-round.</p>
-    <ul>
-      <a href= file:///C:/Users/hktom/DevSource/Proj/-GEOG-HopeT-GEOG478-/projects/PocketPantryMap.html> Click the link to see the locations of the pocket pantries </a>
-    </ul>
-    <li>
-      Data will go here, could possibly add D3 or Highcharts to show data.
-    </li>
-  </body>
+
+    <!-- Link to CSS stylesheet -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Include Highcharts Library -->
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+
+    <style>
+        /* Basic styling for better cohesion */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9; /* Light background color */
+            color: #333;
+        }
+
+        h1 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-top: 20px;
+            color: #800000; /* Maroon color for TAMU branding */
+        }
+
+        #content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        #image-container {
+            display: flex;
+            justify-content: center;
+            margin: 20px 0;
+        }
+
+        #image-container img {
+            width: 100%;
+            max-width: 240px;
+            height: auto;
+            border-radius: 8px; /* Rounded corners for the image */
+        }
+
+        p {
+            text-align: justify; /* Justify text for readability */
+            line-height: 1.6; /* Adjust line height for better spacing */
+        }
+
+        ul {
+            list-style-type: none; /* Remove default bullet points */
+            padding: 0;
+        }
+
+        ul a {
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #800000; /* Maroon for TAMU branding */
+            color: #fff;
+            text-decoration: none;
+            text-align: center;
+            border-radius: 5px; /* Rounded corners for links */
+        }
+
+        ul a:hover {
+            background-color: #9a1e1e; /* Slightly lighter shade on hover */
+        }
+
+        li {
+            margin-top: 20px;
+            font-size: 1.2rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+            margin-top: 20px;
+            background-color: #800000;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Pocket Pantries</h1>
+    </header>
+
+    <main id="content">
+        <div id="image-container">
+            <img src="Pocket-Pantry.webp" alt="Pocket Pantry Image">
+        </div>
+        
+        <p>The purpose of the Pocket Pantry program is to provide temporary relief to Texas A&M students in need who are experiencing food insecurity by providing immediate access to non-perishable food and toiletries before directing them to additional support resources on campus.</p>
+        
+        <p>Pocket Pantries are located across campus. The Pocket Pantries, along with the 12th Can, opened their doors in November 2013. Currently, there are 29 Pocket Pantry locations around campus. A $50,000 annual allocation to this program will ensure the pantries remain stocked year-round.</p>
+        
+        <ul>
+            <li>
+                <a href="PocketPantryMap.html">Click here to see the locations of the Pocket Pantries</a>
+            </li>
+        </ul>
+
+        <!-- Highcharts Chart Container -->
+        <div id="chart-container" style="width: 100%; height: 400px;"></div>
+
+        <li>Data visualization powered by Highcharts.</li>
+    </main>
+
+    <footer>
+        &copy; 2025 Pocket Pantries Program. All rights reserved.
+    </footer>
+
+    <!-- Initialize Highcharts -->
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        Highcharts.chart('chart-container', {
+          chart: {
+            type: 'line' // You can change to other chart types like 'bar', 'column', or 'area'
+          },
+          title: {
+            text: 'College Station Weekly Temperature Forecast'
+          },
+          xAxis: {
+            categories: ['Sat', 'Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
+          },
+          yAxis: {
+            title: {
+              text: 'Temperature (°F)'
+            }
+          },
+          series: [
+            {
+              name: 'Highest (°F)',
+              data: [82, 81, 81, 70, 77, 78, 79, 80]
+            },
+            {
+              name: 'Lowest (°F)',
+              data: [67, 59, 50, 47, 51, 60, 66, 66]
+            }
+          ]
+        });
+      });
+    </script>
+</body>
 </html>
