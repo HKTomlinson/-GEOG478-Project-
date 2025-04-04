@@ -92,6 +92,10 @@
     </header>
 
     <main id="content">
+      <nav style="background-color: #800000; padding: 10px; text-align: center;">
+        <a href="PocketPantryMap.html" style="color: white; text-decoration: none; margin: 0 15px;">Map</a>
+        <a href="#pie-chart-container" style="color: white; text-decoration: none; margin: 0 15px;">Visualization</a>
+    </nav>
         <div id="image-container">
             <img src="Pocket-Pantry.webp" alt="Pocket Pantry Image">            >
         </div>
@@ -110,51 +114,61 @@
                 <a href="PocketPantryMap.html">Click here to see the locations of the Pocket Pantries</a>
             </li>
         </ul>
+        <p>The data here displays the amount of the different types of Pocket Pantries there are. Involving not only students, but also staff, veterans, etc.</p>
 
         <!-- Highcharts Chart Container -->
-        <div id="chart-container" style="width: 100%; height: 400px;"></div>
+        <div id="pie-chart-container" style="width: 100%; height: 400px;"></div>
+        <script>
+          Highcharts.chart('pie-chart-container', {
+            chart: {
+                type: 'pie'
+            },
+            title: {
+                text: 'Distribution of Pocket Pantries by Type'
+            },
+            series: [{
+                name: 'Pocket Pantries',
+                colorByPoint: true,
+                data: [
+                    { name: 'All Students', y: 15 },
+                    { name: 'Other Students', y: 11 },
+                    { name: 'Varies', y: 5 }
+                ]
+            }]
+          });
+        </script>
 
         <li>Data visualization powered by Highcharts.</li>
+
+        <section style="background-color: #fff; padding: 20px; margin: 20px 0; border-radius: 5px;">
+          <h2 style="text-align: center;">What Students Are Saying</h2>
+          <div style="font-style: italic; margin: 10px;">
+              <p>"The Pocket Pantries have been a lifesaver for me when times are tough!"</p>
+              <p>- A TAMU Student</p>
+          </div>
+          <div style="font-style: italic; margin: 10px;">
+              <p>"It’s comforting to know there’s help available right on campus."</p>
+              <p>- Another TAMU Student</p>
+          </div>
+      </section>
+
+        <section style="margin: 20px 0;">
+          <h2>Frequently Asked Questions</h2>
+          <details>
+              <summary>What are Pocket Pantries?</summary>
+              <p>Pocket Pantries are small food pantries on campus providing relief to students experiencing food insecurity.</p>
+          </details>
+          <details>
+              <summary>Who can use the Pocket Pantries?</summary>
+              <p>Pocket Pantries are available for all students, staff, and others in need, depending on the location.</p>
+          </details>
+      </section>
     </main>
 
     <footer>
         &copy; 2025 Pocket Pantries Program. All rights reserved.
     </footer>
 
-    <!-- Initialize Highcharts -->
-    <script>
-      document.addEventListener('DOMContentLoaded', function () {
-        Highcharts.chart('chart-container', {
-          chart: {
-            type: 'bar' // You can change to other chart types like 'bar', 'column', or 'area'
-          },
-          title: {
-            text: 'Texas A&M Pocket Pantries'
-          },
-          xAxis: {
-            categories: ['All students', 'Varies', 'Other types of students']
-          },
-          yAxis: {
-            title: {
-              text: 'Number of Pocket Pantries'
-            }
-          },
-          series: [
-            {
-              name: 'All students',
-              data: [15, 0, 0]
-            },
-            {
-              name: 'Other students: Graduates, Faculty, Staff, on-campus residents, veterns',
-              data: [0, 11, 0]
-            },
-            {
-              name: 'Varies',
-              data: [0, 0, 5]
-            }
-          ]
-        });
-      });
     </script>
 </body>
 </html>
