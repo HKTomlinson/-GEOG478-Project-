@@ -93,12 +93,17 @@
 
     <main id="content">
         <div id="image-container">
-            <img src="Pocket-Pantry.webp" alt="Pocket Pantry Image">
+            <img src="Pocket-Pantry.webp" alt="Pocket Pantry Image">            >
         </div>
         
-        <p>The purpose of the Pocket Pantry program is to provide temporary relief to Texas A&M students in need who are experiencing food insecurity by providing immediate access to non-perishable food and toiletries before directing them to additional support resources on campus.</p>
-        
+        <p>The purpose of the Pocket Pantry program is to provide temporary relief to Texas A&M students in need who are experiencing food insecurity by providing immediate access to non-perishable food and toiletries before directing them to additional support resources on campus.</p> 
         <p>Pocket Pantries are located across campus. The Pocket Pantries, along with the 12th Can, opened their doors in November 2013. Currently, there are 29 Pocket Pantry locations around campus. A $50,000 annual allocation to this program will ensure the pantries remain stocked year-round.</p>
+
+        <h3>A majority of pantries are marked with like this: </h3>
+        <main id="content">
+          <div id="image-container">
+              <img src="PPimage.png" alt="Pocket Pantry Image" style="width: 500px; height: auto;">
+          </div>
         
         <ul>
             <li>
@@ -121,27 +126,31 @@
       document.addEventListener('DOMContentLoaded', function () {
         Highcharts.chart('chart-container', {
           chart: {
-            type: 'line' // You can change to other chart types like 'bar', 'column', or 'area'
+            type: 'bar' // You can change to other chart types like 'bar', 'column', or 'area'
           },
           title: {
-            text: 'College Station Weekly Temperature Forecast'
+            text: 'Texas A&M Pocket Pantries'
           },
           xAxis: {
-            categories: ['Sat', 'Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']
+            categories: ['All students', 'Varies', 'Other types of students']
           },
           yAxis: {
             title: {
-              text: 'Temperature (°F)'
+              text: 'Number of Pocket Pantries'
             }
           },
           series: [
             {
-              name: 'Highest (°F)',
-              data: [82, 81, 81, 70, 77, 78, 79, 80]
+              name: 'All students',
+              data: [15, 0, 0]
             },
             {
-              name: 'Lowest (°F)',
-              data: [67, 59, 50, 47, 51, 60, 66, 66]
+              name: 'Other students: Graduates, Faculty, Staff, on-campus residents, veterns',
+              data: [0, 11, 0]
+            },
+            {
+              name: 'Varies',
+              data: [0, 0, 5]
             }
           ]
         });
